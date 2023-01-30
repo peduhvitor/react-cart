@@ -12,10 +12,14 @@ const CartProduct = ({data, amount, action}: Props) => {
 
     return (
         <div className="w-full flex gap-8">
-            <img className="w-20 h-20 rounded-xl shadow-xl" src="" alt="" />
+            <div className="w-20 h-20 flex items-center justify-center rounded-xl shadow-xl bg-white overflow-hidden">
+                <img className="w-3/4" src={data.img} alt="" />
+            </div>
             <div className="flex justify-between items-center flex-1">
-                <div>
-                    <div className="text-[18px] text-[#3F4E6E]">{ data.name }</div>
+                <div className="flex flex-col gap-1">
+                    <div className="text-[18px] text-[#3F4E6E]">
+                        { data.name.length > 48 ? data.name.substring(0, 48).trim()+'...' : data.name}
+                    </div>
                     <div className="text-[18px] text-[#293652] font-medium"><span className="text-[14px]">R$</span>{ data.price.toLocaleString('pt-BR', {minimumFractionDigits: 2}) }</div>
                 </div>
 
