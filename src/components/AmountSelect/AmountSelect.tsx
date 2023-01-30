@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ProductAction } from "../../reducers/listCart"
 
 type Props = {
@@ -13,7 +12,7 @@ type SetAmountType = {
 } 
 
 const AmountSelect = ({id, amount, action}: Props) => {
-    
+
     const setAmount = (set: SetAmountType) => {
         let value: number = amount;
 

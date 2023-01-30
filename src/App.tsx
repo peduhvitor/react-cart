@@ -43,6 +43,7 @@ function App() {
 
             <div className='flex flex-col w-full items-center mt-10'>
 
+            { dataProducts.length > 0 ?
             <div className='flex justify-between max-w-[1296px] w-[90vw] gap-8'>
                 <div className='w-10 h-10 flex justify-center items-center rounded-full bg-[#F2F3F5]'>
                     <img src="/angle-small-left.svg"/>
@@ -74,6 +75,13 @@ function App() {
                     </div>
                 </div>
             </div>
+            :
+            <div className='max-w-[1024px] w-[90vw] h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
+                Sem produtos para exibir
+            </div>
+            }
+
+            
 
             </div>
         </div>
