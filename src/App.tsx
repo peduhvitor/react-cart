@@ -1,7 +1,25 @@
 import CartProduct from './components/CartProduct/CartProduct'
+import { useProductList } from './reducers/listCart'
+import products from './data/products';
 import './App.css'
 
 function App() {
+
+    const [productsList, dispatch] = useProductList();
+
+    const filteredProducts = products.filter( item => {
+        return productsList.find(filter => filter.id === item.id) !== undefined;
+    })
+
+    const dataProducts = filteredProducts.map(product => {
+        const selectedProduct = productsList.find(item => item.id === product.id);
+        if(selectedProduct) {
+            return { ...product, amount: selectedProduct.amount }
+        } else {
+            return { ...product, amount: 1 }
+        }
+    })
+
     return (
         <div>
             <header className='h-[72px] flex justify-center border-b-[1px]'>
@@ -26,7 +44,9 @@ function App() {
                 </div>
 
                 <div className='max-w-[820px] w-[60%] h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
-                    <CartProduct/>
+                    { dataProducts.map(item => (
+                        <CartProduct data={item} amount={item.amount} action={dispatch}/>
+                    )) }
                 </div>
 
                 <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
