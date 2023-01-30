@@ -12,7 +12,7 @@ const CartProduct = ({data, amount, action}: Props) => {
 
     return (
         <div className="w-full flex gap-8">
-            <div className="w-20 h-20 flex items-center justify-center rounded-xl shadow-xl bg-white overflow-hidden">
+            <div className="min-w-[88px] w-[88px] h-[88px] flex items-center justify-center rounded-xl shadow-xl bg-white overflow-hidden">
                 <img className="w-3/4" src={data.img} alt="" />
             </div>
             <div className="flex justify-between items-center flex-1">
