@@ -50,8 +50,14 @@ function App() {
                 </div>
 
                 <div className='max-w-[820px] w-[60%] h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
-                    { dataProducts.map(item => (
+                    { dataProducts.map((item, index) => (
+                        <>
                         <CartProduct data={item} amount={item.amount} action={dispatch}/>
+                        
+                        { index < (dataProducts.length -1) && 
+                            <div className="line bg-[#DADFE8]"></div>
+                        }
+                        </>
                     )) }
                 </div>
 
@@ -80,7 +86,7 @@ function App() {
                 Sem produtos para exibir
             </div>
             }
-            
+
             </div>
         </div>
     )
