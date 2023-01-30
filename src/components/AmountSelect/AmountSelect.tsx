@@ -13,7 +13,7 @@ type SetAmountType = {
 } 
 
 const AmountSelect = ({id, amount, action}: Props) => {
-
+    
     const setAmount = (set: SetAmountType) => {
         let value: number = amount;
 

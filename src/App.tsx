@@ -20,6 +20,11 @@ function App() {
         }
     })
 
+    const subTotal = dataProducts.reduce((acc, item) => {
+        return acc + (item.price * item.amount)
+    }, 0)
+
+
     return (
         <div>
             <header className='h-[72px] flex justify-center border-b-[1px]'>
@@ -29,7 +34,7 @@ function App() {
                     <div className='w-11 h-11 flex justify-center items-center relative'>
                         <img src="/shopping-cart.svg" alt="" />
                         <div className='w-[14.4px] h-[14.4px] flex items-center justify-center rounded-full bg-[#122E5F] text-[9.6px] text-white absolute top-[3px] right-[3px]'>
-                            5
+                            {dataProducts.length}
                         </div>
                     </div>
                 </div>
@@ -53,14 +58,14 @@ function App() {
                     <div className='w-full flex flex-col gap-5'>
                         <div className='flex flex-col'>
                             <div className='font-medium text-[18px] text-[#3F4E6E]'>Resumo</div>
-                            <div className='text-[16px] text-[#6D737D]'>13 Produtos</div>
+                            <div className='text-[16px] text-[#6D737D]'>{dataProducts.length} Produtos</div>
                         </div>
 
                         <div className="line bg-[#DADFE8]"></div>
 
                         <div className='flex justify-between items-center'>
                             <div className='text-[24px] text-[#3F4E6E]'>Subtotal:</div>
-                            <div className='text-[32px] text-[#293652] font-medium'><span className='text-[24px]'>R$</span>1.168,70</div>
+                            <div className='text-[32px] text-[#293652] font-medium'><span className='text-[24px]'>R$</span>{subTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</div>
                         </div>
 
                         <button className='h-10 px-6 rounded-full bg-[#122E5F] text-white text-[18px]'>
