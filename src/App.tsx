@@ -80,9 +80,7 @@ function App() {
                 Sem produtos para exibir
             </div>
             }
-
             
-
             </div>
         </div>
     )
