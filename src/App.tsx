@@ -1,3 +1,4 @@
+import CartProduct from './components/CartProduct/CartProduct'
 import './App.css'
 
 function App() {
@@ -24,13 +25,8 @@ function App() {
                     <img src="/angle-small-left.svg"/>
                 </div>
 
-                <div className='max-w-[820px] w-[60%] p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
-                    <div>Produtos</div>
-                    <div>Produtos</div>
-                    <div>Produtos</div>
-                    <div>Produtos</div>
-                    <div>Produtos</div>
-                    <div>Produtos</div>
+                <div className='max-w-[820px] w-[60%] h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
+                    <CartProduct/>
                 </div>
 
                 <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
