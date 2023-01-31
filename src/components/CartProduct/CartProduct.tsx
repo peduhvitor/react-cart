@@ -15,7 +15,7 @@ const CartProduct = ({data, amount, action}: Props) => {
             <div className="min-w-[88px] w-[88px] h-[88px] flex items-center justify-center rounded-xl shadow-xl bg-white overflow-hidden">
                 <img className="w-3/4" src={data.img} alt="" />
             </div>
-            <div className="flex justify-between items-center flex-1">
+            <div className="flex sm:justify-between max-sm:flex-col max-sm:items-start sm:items-center flex-1 gap-4">
                 <div className="flex flex-col gap-1">
                     <div className="text-[18px] text-[#3F4E6E]">
                         { data.name.length > 48 ? data.name.substring(0, 48).trim()+'...' : data.name}
