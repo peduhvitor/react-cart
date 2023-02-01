@@ -1,4 +1,5 @@
 import CartProduct from './components/CartProduct/CartProduct'
+import RelatedProducts from './components/RelatedProducts/RelatedProducts'
 import { useProductList } from './reducers/listCart'
 import products from './data/products';
 import './App.css'
@@ -75,25 +76,35 @@ function App() {
                         )) }
                     </div>
 
-                    <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px] max-2xl:max-w-[820px] max-2xl:w-full'>
-                        <div className='w-full flex flex-col gap-5'>
-                            <div className='flex flex-col'>
-                                <div className='font-medium text-[18px] text-[#3F4E6E]'>Resumo</div>
-                                <div className='text-[16px] text-[#6D737D]'>{amountItems} Produtos</div>
+                    <div className='flex flex-col gap-8 max-2xl:max-w-[820px] max-2xl:w-full'>
+                        <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px] w-full'>
+                            <div className='w-full flex flex-col gap-5'>
+                                <div className='flex flex-col'>
+                                    <div className='font-medium text-[18px] text-[#3F4E6E]'>Resumo</div>
+                                    <div className='text-[16px] text-[#6D737D]'>{amountItems} Produtos</div>
+                                </div>
+
+                                <div className="line bg-[#DADFE8]"></div>
+
+                                <div className='flex justify-between items-center'>
+                                    <div className='text-[24px] text-[#3F4E6E]'>Subtotal:</div>
+                                    <div className='text-[32px] text-[#293652] font-medium'><span className='text-[24px]'>R$</span>{subTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</div>
+                                </div>
+
+                                <button className='h-10 px-6 rounded-full bg-[#122E5F] text-white text-[18px]'>
+                                    Pronto para pagar 
+                                </button>
                             </div>
+                        </div>
 
-                            <div className="line bg-[#DADFE8]"></div>
+                        <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px] max-2xl:max-w-[820px] max-2xl:w-full'>
+                            <div className='font-medium text-[18px] text-[#3F4E6E]'>Produtos relacionados</div>
 
-                            <div className='flex justify-between items-center'>
-                                <div className='text-[24px] text-[#3F4E6E]'>Subtotal:</div>
-                                <div className='text-[32px] text-[#293652] font-medium'><span className='text-[24px]'>R$</span>{subTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</div>
-                            </div>
-
-                            <button className='h-10 px-6 rounded-full bg-[#122E5F] text-white text-[18px]'>
-                                Pronto para pagar 
-                            </button>
+                            <RelatedProducts/>
                         </div>
                     </div>
+
+
                 </div>
                 
             </div>
