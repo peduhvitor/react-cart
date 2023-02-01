@@ -33,7 +33,6 @@ function App() {
         return acc + (item.price * item.amount)
     }, 0)
 
-
     return (
         <div>
             <header className='h-[72px] flex justify-center border-b-[1px]'>
@@ -65,7 +64,6 @@ function App() {
 
                     </div>
                 </div>
-                
                 
                 <div className='flex max-2xl:flex-col max-2xl:items-center max-2xl:w-full flex-1 gap-8'>
                     <div className='max-w-[820px] w-full h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
@@ -116,10 +114,7 @@ function App() {
                                 )) }
                             </div>
                         }
-                        
                     </div>
-
-
                 </div>
                 
             </div>
