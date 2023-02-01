@@ -12,6 +12,10 @@ function App() {
         return productsList.find(filter => filter.id === item.id) !== undefined;
     })
 
+    const restProducts = products.filter(item => {
+        return productsList.every(filter => filter.id !== item.id);
+    })
+    
     const dataProducts = filteredProducts.map(product => {
         const selectedProduct = productsList.find(item => item.id === product.id);
         if(selectedProduct) {
@@ -76,8 +80,8 @@ function App() {
                         )) }
                     </div>
 
-                    <div className='flex flex-col gap-8 max-2xl:max-w-[820px] max-2xl:w-full'>
-                        <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px] w-full'>
+                    <div className='h-min flex flex-col gap-8 max-2xl:max-w-[820px] max-2xl:w-full flex-1'>
+                        <div className='h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px] w-full'>
                             <div className='w-full flex flex-col gap-5'>
                                 <div className='flex flex-col'>
                                     <div className='font-medium text-[18px] text-[#3F4E6E]'>Resumo</div>
@@ -96,12 +100,23 @@ function App() {
                                 </button>
                             </div>
                         </div>
+                        
+                        { restProducts.length > 0 &&
+                            <div className='h-min p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px]'>
+                                <div className='font-medium text-[18px] text-[#3F4E6E]'>Produtos relacionados</div>
 
-                        <div className='h-min flex-1 p-6 flex flex-col items-center gap-6 bg-[#F2F3F5] rounded-[40px] max-2xl:max-w-[820px] max-2xl:w-full'>
-                            <div className='font-medium text-[18px] text-[#3F4E6E]'>Produtos relacionados</div>
-
-                            <RelatedProducts/>
-                        </div>
+                                { restProducts.map((item, index) => (
+                                    <>
+                                    <RelatedProducts data={item} action={dispatch}/>
+                                    
+                                    { index < (restProducts.length -1) && 
+                                        <div className="line bg-[#DADFE8]"></div>
+                                    }
+                                    </>
+                                )) }
+                            </div>
+                        }
+                        
                     </div>
 
 

@@ -7,7 +7,7 @@ type Product = {
 }
 
 export type ProductAction = {
-    type: 'REMOVE' | 'SET_AMOUNT',
+    type: 'ADD' | 'REMOVE' | 'SET_AMOUNT',
     payload?: {
         id?: string,
         amount?: number
@@ -22,6 +22,11 @@ const productsList: Product[] = [
 
 const reducer = (state: Product[], action: ProductAction) => {
     switch(action.type) {
+        case 'ADD':
+            if(action.payload?.id) {
+                let newState = [...state, {id: action.payload.id, amount: 1}];
+                return newState
+            }
         case 'REMOVE':
             if(action.payload?.id) {
                 let newState = [...state];
