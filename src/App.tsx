@@ -20,6 +20,10 @@ function App() {
         }
     })
 
+    const amountItems = dataProducts.reduce((acc, item) => {
+        return acc + item.amount
+    }, 0)
+
     const subTotal = dataProducts.reduce((acc, item) => {
         return acc + (item.price * item.amount)
     }, 0)
@@ -34,7 +38,7 @@ function App() {
                     <div className='w-11 h-11 flex justify-center items-center relative'>
                         <img src="/shopping-cart.svg" alt="" />
                         <div className='w-[14.4px] h-[14.4px] flex items-center justify-center rounded-full bg-[#122E5F] text-[9.6px] text-white absolute top-[3px] right-[3px]'>
-                            {dataProducts.length}
+                            {amountItems}
                         </div>
                     </div>
                 </div>
@@ -75,7 +79,7 @@ function App() {
                         <div className='w-full flex flex-col gap-5'>
                             <div className='flex flex-col'>
                                 <div className='font-medium text-[18px] text-[#3F4E6E]'>Resumo</div>
-                                <div className='text-[16px] text-[#6D737D]'>{dataProducts.length} Produtos</div>
+                                <div className='text-[16px] text-[#6D737D]'>{amountItems} Produtos</div>
                             </div>
 
                             <div className="line bg-[#DADFE8]"></div>
